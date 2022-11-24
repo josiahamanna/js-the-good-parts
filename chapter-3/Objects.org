@@ -35,3 +35,30 @@
     flight.equipment.model // throw "TypeError"
     flight.equipment && flight.equipment.model // undefined
     #+END_SRC
+
+5. Value of object can be updated by assignment.
+   If the property name already exists in the object, the property value is replaced.
+    #+BEGIN_SRC JavaScript
+    stooge['first-name'] = "Jerome";
+    #+END_SRC
+   If the object does not already have that property name, the object is augmented:
+    #+BEGIN_SRC JavaScript
+    stooge['middle-name'] = "Lester";
+    stooge.nickname = "Curly";
+    flight.equipment = {
+        model: "Boeing 777"
+    };
+    flight.status = "overdue";
+    #+END_SRC
+
+6. Objects are passed around by reference. They are never copied.
+    #+BEGIN_SRC JavaScript
+    var x = stooge;
+    x.nickname = 'Curly';
+    var nick = stooge.nickname;
+        // nick is 'Curly' becuase x and stooge
+        // are references to the same object
+    a = b = c = {};
+        // a, b and c all refer to
+        // the same empty object
+    #+END_SRC
